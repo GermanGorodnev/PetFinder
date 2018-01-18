@@ -27,7 +27,9 @@ export const TR_HEADER = {
         MissingAddNew: "Добавить объявление",
 
         LoginPage: "Вход",
-        Login: "Вход"
+        Login: "Вход",
+
+        Register: "Регистрация"
     },
 
     ENG: {
@@ -42,7 +44,9 @@ export const TR_HEADER = {
         MissingAddNew: "Add new Ad",
 
         LoginPage: "Login",
-        Login: "Login"
+        Login: "Login",
+
+        Register: "Register"
     }
 }
 
@@ -51,12 +55,20 @@ export const TR_HEADER = {
 
 export const TR_LOGIN = {
     RUS: {
-        NAME: "Имя",
+        EMAIL: "E-mail",
         PASS: "Пароль",
+        LOGIN: "Войти",
+        NO_ACC: "Нет аккаунта?",
+        REG: "Зарегистрируйтесь!",
+        INVALID_PASSWORD: "Неверный логин или пароль"
     },
 
     ENG: {
-        NAME: "Name",
+        EMAIL: "E-mail",
         PASS: "Password",
+        LOGIN: "Login",
+        NO_ACC: "Don't have an account?",
+        REG: "Register!",
+        INVALID_PASSWORD: "Invalid login or password"
     }
 }

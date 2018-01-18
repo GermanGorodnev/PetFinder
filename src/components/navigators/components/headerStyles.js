@@ -1,6 +1,7 @@
 import {
     StyleSheet
 } from "react-native"
+import PALETTE from "app/src/styles/colors"
 
 export default headerStyles = StyleSheet.create({
     header: {
@@ -31,10 +32,10 @@ export default headerStyles = StyleSheet.create({
         fontSize: 27
     },
     buttonBack: {
-        backgroundColor: "#3B6BC4",
+        backgroundColor: PALETTE.ACCENT_COL,
         padding: 5,
     },
     buttonAddMissing: {
-        backgroundColor: "#3B6BC4"
+        backgroundColor: PALETTE.ACCENT_COL
     }
 }) 

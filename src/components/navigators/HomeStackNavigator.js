@@ -14,7 +14,7 @@ export const HomeStackNav = StackNavigator({
 }, {
     initialRouteName: "Home",
     navigationOptions: {
-        header: (<StackNavigatorHeader nav="homeNav" back={true} />)
+        header: null
     },
     transitionConfig: () => {
         return {

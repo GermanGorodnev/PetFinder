@@ -40,7 +40,7 @@ export function fetchMissings() {
             }
         })
 
-        // fetch(`${API.URL}`, {
+        // fetch(`${API.URL}fetchMissings.php`, {
         //     method: "GET",
         //     headers: new Headers(),
         // })

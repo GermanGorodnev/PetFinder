@@ -14,6 +14,7 @@ import { slideMenuStyles, screenStyles } from "app/src/styles/defaultStyles"
 
 // modules
 import HomeScreenMap from "./components/HomeScreenMap"
+import StackNavigatorHeader from "app/src/components/navigators/components/StackNavigatorHeader"
 
 // actions
 
@@ -31,8 +32,9 @@ class HomeScreen extends React.Component {
 
     render() {
         return (
-            <View style={[screenStyles.container, {flexDirection: "row"}]}>
+            <View style={screenStyles.container}>
                 <StatusBar hidden={true} />
+                <StackNavigatorHeader nav="homeNav" back={true} navIndex={0} />
                 {/* <HomeScreenMap 
 
                 /> */}

@@ -20,6 +20,20 @@ export const APP = {
     }
 }
 
+export const PROFILE = {
+    LOGIN: "PROFILE_LOGIN",
+    LOGIN_SUCCESS: "PROFILE_LOGIN_SUCCESS",
+    LOGIN_ERROR_INVALID: "PROFILE_LOGIN_ERROR_INVALID",
+    LOGIN_ERROR: "PROFILE_LOGIN_ERROR",
+
+    REGISTER: "PROFILE_REGISTER",
+    REGISTER_SUCCESS: "PROFILE_REGISTER_SUCCESS",
+    REGISTER_ERROR: "PROFILE_REGISTER_ERROR",
+
+    LOGIN_ERRORS: {
+        INVALID_PASSWORD: "INVALID_PASSWORD"
+    }
+}
 
 export const MAP = {
 
@@ -32,5 +46,5 @@ export const MISSINGS = {
 }
 
 export const API = {
-    URL: "https://germangorodnev.com/petfinder/api/"
+    URL: "https://germangorodnev.com/petfinder/"
 }

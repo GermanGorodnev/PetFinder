@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 
 // screens
 import LoginScreen from "app/src/components/screens/login/LoginScreen"
+import RegisterScreen from "app/src/components/screens/login/RegisterScreen"
 
 import StackNavigatorHeader from "app/src/components/navigators/components/StackNavigatorHeader"
 import TransitionConfiguration from "app/src/components/navigators/transitions/TransitionConfiguration"
@@ -12,10 +13,13 @@ export const LoginStackNav = StackNavigator({
     Login: {
         screen: LoginScreen,
     },
+    Register: {
+        screen: RegisterScreen,
+    }
 }, {
     initialRouteName: "Login",
     navigationOptions: {
-        header: (<StackNavigatorHeader back={true} nav="loginNav" />)
+        header: null
     },
     transitionConfig: TransitionConfiguration
 });

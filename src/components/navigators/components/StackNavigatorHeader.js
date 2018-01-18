@@ -19,6 +19,10 @@ import { connect } from "react-redux"
 import { TR_HEADER } from "app/src/translate"
 import headerStyles from "./headerStyles"
 
+import {
+    backRoute
+} from "app/src/actions/appActions"
+
 const mapStateToProps = (store) => {
     return {
         homeNav: store.homeNav,
@@ -40,24 +44,26 @@ class StackNavigatorHeader extends React.Component {
     }
     componentWillUnmount() {
         BackHandler.removeEventListener("hardwareBackPress", this._onButtonBack);
+        console.log("STACK DESTROYED", this.props.nav, this.props.currentRouteName);
     }
 
     _onButtonBack(event) {
-        const { dispatch, nav } = this.props;
+        const { nav, navIndex } = this.props;
         const ind = this.props[nav].index;
         if (ind === 0) {
             return false;
         }
-        dispatch(NavigationActions.back());
+        this.props.dispatch(backRoute(undefined, this.props[nav].routes[ind - 1].routeName));
         return true;
     }
 
     render() {
-        const { lang, currentRouteName, nav, back } = this.props;
-        const ind = this.props[nav].index;
+        const { lang, currentRouteName, nav, back, navIndex } = this.props;
+        const outerStyle = this.props.style || {};
+
         let btnBack = undefined;
         if (back) {
-            if (ind !== 0)
+            if (navIndex !== 0)
                 btnBack = (
                     <Button
                         style={headerStyles.buttonBack}
@@ -72,7 +78,7 @@ class StackNavigatorHeader extends React.Component {
                 )
         }
         return (
-            <Header style={headerStyles.header}>
+            <Header style={[outerStyle, headerStyles.header]}>
                 <Left>
                     {btnBack}
                 </Left>

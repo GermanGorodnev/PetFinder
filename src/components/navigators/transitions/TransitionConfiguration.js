@@ -13,8 +13,12 @@ let MyTransition = (index, position, layout) => {
     const translateX = position.interpolate({
         inputRange,
         outputRange: [layout.initWidth, 0, 0]
-    })
+    });
+    //console.log(translateX);
 
+    console.log([
+        {translateX}
+    ])
     return {
         opacity,
         transform: [

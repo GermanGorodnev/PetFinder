@@ -1,15 +1,9 @@
 import { APP } from "app/src/constants"
 
-const URN_DP_TIME = 1//Math.floor(1000 * 0.005);
+const URN_DP_TIME = Math.floor(1000 * 0.155);
 
 export function goToRoute(routeName) {
     return function (dispatch) {
-        dispatch({
-            type: APP.GO_TO_ROUTE,
-            payload: {
-                routeName
-            }
-        });
         setTimeout(() => {
             dispatch({
                 type: APP.UPDATE_ROUTE_NAME,
@@ -17,8 +11,15 @@ export function goToRoute(routeName) {
                     newRouteName: routeName
                 }
             })
-        }, 1000 * 0.155);
+        }, URN_DP_TIME);
+        dispatch({
+            type: APP.GO_TO_ROUTE,
+            payload: {
+                routeName
+            }
+        });    
     }
+        
 }
 
 export function backRoute(key, routeName) {

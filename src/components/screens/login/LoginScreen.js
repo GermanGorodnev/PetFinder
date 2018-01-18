@@ -35,7 +35,7 @@ const mapStateTopProps = (store) => {
         lang: store.app.language,
 
         loggingIn: store.profile.loggingIn,
-        reason: store.profile.reason,
+        reason: store.profile.loginReason,
     }
 }
 class LoginScreen extends React.Component {
@@ -105,7 +105,7 @@ class LoginScreen extends React.Component {
                             block={true}
                             onPress={this._onLoginClick}
                         >
-                            <Text style={styles.loginText}>{TR_LOGIN[lang].LOGIN}</Text>
+                            <Text style={styles.buttonText}>{TR_LOGIN[lang].LOGIN}</Text>
                         </Button>
                     </View>
                     <View>
@@ -116,7 +116,7 @@ class LoginScreen extends React.Component {
                             block={true}
                             onPress={this._onRegisterClick}
                         >
-                            <Text style={styles.loginText}>{TR_LOGIN[lang].REG}</Text>
+                            <Text style={styles.buttonText}>{TR_LOGIN[lang].REG}</Text>
                         </Button>
                     </View>
                 </View>
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         marginVertical: 15,
         backgroundColor: PALETTE.ACCENT_COL,
     },
-    loginText: {
+    buttonText: {
         fontSize: 18,
         color: "#000"
     },

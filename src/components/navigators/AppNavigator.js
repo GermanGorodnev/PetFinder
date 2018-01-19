@@ -16,7 +16,7 @@ import StackNavigatorHeader from "app/src/components/navigators/components/Stack
 
 import TransitionConfiguration from "app/src/components/navigators/transitions/TransitionConfiguration"
 
-export const START_ROUTE = "LoginPage"
+export const START_ROUTE = "HomePage"
 
 export const AppNav = DrawerNavigator({
     HomePage: {

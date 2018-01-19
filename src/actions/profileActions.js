@@ -1,6 +1,8 @@
 import { PROFILE, API, APP } from "app/src/constants"
 import { goToMainRoute } from "app/src/actions/appActions";
 
+const REDIRECT_TIME = 1000 * .7;
+
 export function login(email, password) {
     return function (dispatch) {
         dispatch({
@@ -34,13 +36,34 @@ export function login(email, password) {
                     });
                     setTimeout(() => {
                         dispatch(goToMainRoute(APP.NAV.HOME_PAGE, "Home"));
-                    }, 1000 * 1);
+                    }, REDIRECT_TIME);
                 } else {
-                    dispatch({
-                        type: PROFILE.LOGIN_ERROR_INVALID,
-                        payload: {
+                    switch (json.reason) {
+                        case "noemailconfirm": {
+                            dispatch({
+                                type: PROFILE.LOGIN_NO_EMAIL_CONFIRM,
+                                payload: {
+                                }
+                            })
+                            break;
                         }
-                    })
+                        case "nosuch": {
+                            dispatch({
+                                type: PROFILE.LOGIN_ERROR_INVALID,
+                                payload: {
+                                }
+                            })
+                            break;
+                        }
+                        default: {
+                            dispatch({
+                                type: PROFILE.LOGIN_ERROR_INVALID,
+                                payload: {
+                                }
+                            });
+                        }
+                    }
+
                 }
             })
             .catch((error) => {
@@ -75,6 +98,7 @@ export function register(name, email, password) {
             })
         })
             .then((res) => {
+                console.log("UNPARSED", res);
                 return res.json();
             })
             .then((json) => {
@@ -86,7 +110,7 @@ export function register(name, email, password) {
                     });
                     setTimeout(() => {
                         dispatch(goToMainRoute(APP.NAV.LOGIN_PAGE, "Login"));
-                    }, 1000 * 1)
+                    }, REDIRECT_TIME)
                 } else {
                     switch (json.reason) {
                         case "emailUsed": {

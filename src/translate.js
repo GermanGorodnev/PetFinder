@@ -67,7 +67,8 @@ export const TR_LOGIN = {
         PASS_NOT_MATCH: "Пароли не совпадают",
 
         INVALID_EMAIL: "Некорректный email-адрес",
-        EMAIL_USED: "Email уже используется"
+        NO_EMAIL_CONFIRM: "Email-адрес не подтвержден",
+        EMAIL_USED: "Email-адрес уже используется"
     },
 
     ENG: {
@@ -82,6 +83,34 @@ export const TR_LOGIN = {
         INVALID_PASSWORD: "Invalid login or password",
         PASS_NOT_MATCH: "Passwords not match",
         INVALID_EMAIL: "Invalid email",
-        EMAIL_USED: "Email already taken"
+        NO_EMAIL_CONFIRM: "Email is not confirmed",
+        EMAIL_USED: "Email is already taken"
+    }
+}
+
+
+export const TR_POST = {
+    RUS: {
+        CAPTION: "Заголовок",
+        DESC: "Описание",
+        PUBLISH: "Опубликовать"
+    },
+    ENG: {
+        CAPTION: "Caption",
+        DESC: "Описание",
+        PUBLISH: "Publish"
+    }
+}
+
+
+
+export const TR_MAP = {
+    RUS: {
+        FINISH: "Конец",
+        CLEAR: "Удалить",
+    },
+    ENG: {
+        FINISH: "Finish",
+        CLEAR: "Clear"
     }
 }

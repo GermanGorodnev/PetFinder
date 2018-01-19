@@ -44,7 +44,6 @@ class StackNavigatorHeader extends React.Component {
     }
     componentWillUnmount() {
         BackHandler.removeEventListener("hardwareBackPress", this._onButtonBack);
-        console.log("STACK DESTROYED", this.props.nav, this.props.currentRouteName);
     }
 
     _onButtonBack(event) {

@@ -42,6 +42,16 @@ export default function reducer(state = initialState, action) {
             };
         }
 
+        case PROFILE.LOGIN_NO_EMAIL_CONFIRM: {
+            return {
+                ...state,
+                loggedIn: false,
+                loggingIn: false,
+                loginReason: PROFILE.LOGIN_ERRORS.NO_EMAIL_CONFIRM,
+                loginError: null
+            }
+        }
+
         case PROFILE.LOGIN_ERROR: {
             console.error(action.payload.error);
             return {

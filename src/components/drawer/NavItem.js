@@ -40,8 +40,8 @@ class NavItem extends React.Component {
     }
 
     render() {
-        const { routeName, iconPath, displayName, currentRouteName } = this.props;
-        const weActive = (currentRouteName === routeName);
+        const { routeName, routeSubname, iconPath, displayName, currentRouteName } = this.props;
+        const weActive = (currentRouteName === routeSubname);
         return (
             <TouchableNativeFeedback
                 background={TouchableNativeFeedback.SelectableBackground()}

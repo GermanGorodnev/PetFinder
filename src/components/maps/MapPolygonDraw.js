@@ -13,14 +13,17 @@ import PALETTE from "app/src/styles/colors"
 import { TR_MAP } from "app/src/translate"
 
 // actions
+import {
+    newMissingUpdatePolygons
+} from "app/src/actions/missingsActions"
 
 let id = 0;
 
 const mapStateToProps = (store) => {
     return {
-        mapRegion: store.mainMap.mapRegion,
-
         lang: store.app.language,
+        mapRegion: store.mainMap.mapRegion,
+        polygons: store.missings.newMissing.polygons,
     }
 };
 class MapPolygonDraw extends React.Component {
@@ -29,7 +32,6 @@ class MapPolygonDraw extends React.Component {
 
         this.state = {
             region: this.props.mapRegion,
-            polygons: [], // array of arrays of objects
             editing: null,
         }
     }
@@ -57,27 +59,30 @@ class MapPolygonDraw extends React.Component {
     }
 
     delete() {
-        const { polygons, editing } = this.state;
+        const { polygons } = this.props;      
         this.setState({
-            polygons: polygons.slice(0, polygons.length - 1),
             editing: null,
         });
+        // DISPATCH
+        this.props.dispatch(newMissingUpdatePolygons(polygons.slice(0, polygons.length - 1)));
     }
 
     finish() {
-        const { polygons, editing } = this.state;
+        const { polygons } = this.props;      
+        const { editing } = this.state;
         this.setState({
-            polygons: [
-                ...polygons,
-                editing
-            ],
             editing: null,
         });
+        // DISPATCH
+        this.props.dispatch(newMissingUpdatePolygons([
+            ...polygons,
+            editing
+        ]));
     }
 
     render() {
-        const { mapRegion, lang } = this.props;
-        const { polygons, editing } = this.state;
+        const { mapRegion, lang, polygons } = this.props;
+        const { editing } = this.state;
 
         const mapOptions = {
             scrollEnabled: true

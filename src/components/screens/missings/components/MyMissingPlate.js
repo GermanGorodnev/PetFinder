@@ -52,7 +52,7 @@ class MissingsPlate extends React.Component {
                         ]}
                             numberOfLines={1}
                         >
-                            {me.name}
+                            {me.caption}
                         </Text>
                         <Text style={[
                             styles.text,
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     name: {
         fontWeight: "800",
         fontSize: 20,
+        marginRight: 20
     },
     city: {
         color: "#000",

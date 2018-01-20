@@ -1,7 +1,7 @@
 import { PROFILE, API, APP } from "app/src/constants"
 import { goToMainRoute } from "app/src/actions/appActions";
 
-const REDIRECT_TIME = 1000 * .7;
+const REDIRECT_TIME = 1000 * .05;
 
 export function login(email, password) {
     return function (dispatch) {
@@ -31,7 +31,7 @@ export function login(email, password) {
                     dispatch({
                         type: PROFILE.LOGIN_SUCCESS,
                         payload: {
-
+                            userID: json.userID
                         }
                     });
                     setTimeout(() => {

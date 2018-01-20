@@ -21,12 +21,13 @@ import {
 
 const mapStateTopProps = (store) => {
     return {
-        missings: store.missings.list
+        missings: store.missings.list,
+        userID: store.profile.userID
     }
 }
 class MissingsScreen extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchMissings());
+        this.props.dispatch(fetchMissings(this.props.userID));
     }
 
     _renderMissings() {
@@ -35,7 +36,7 @@ class MissingsScreen extends React.Component {
         missings.forEach((ad, ind) => {
             arr.push(
                 <MyMissingPlate 
-                    key={ad.uid}
+                    key={ad.id}
                     index={ind}
                 />
             )

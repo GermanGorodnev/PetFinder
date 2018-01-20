@@ -6,7 +6,7 @@ const initialState = {
         longitude: 84.9922451,
         latitudeDelta: 0.003,
         longitudeDelta: 0.003,
-    }
+    },
 }
 const mainMapReducer = (state = initialState, action) => {
     switch (action.type) {

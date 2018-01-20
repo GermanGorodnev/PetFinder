@@ -1,6 +1,8 @@
 import { PROFILE } from "app/src/constants"
 
 const initialState = {
+    userID: undefined,
+
     loggedIn: false,
     loggingIn: false,
     loginReason: undefined,
@@ -26,6 +28,7 @@ export default function reducer(state = initialState, action) {
         case PROFILE.LOGIN_SUCCESS: {
             return {
                 ...state,
+                userID: action.payload.userID,
                 loggedIn: true,
                 loggingIn: false,
                 loginError: null,
